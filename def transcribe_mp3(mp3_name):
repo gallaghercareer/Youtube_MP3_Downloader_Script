@@ -1,0 +1,18 @@
+import os
+import subprocess
+
+def transcribe_mp3(directory):
+	# Iterate through all files and directories in the input directory
+    for root, dirs, files in os.walk(directory):
+        # Iterate through all files in the current directory
+        for filename in files:
+            # Check if the file is an MP3 file
+            if filename.endswith('.mp3'):
+                # Construct the full path to the MP3 file
+                mp3_file = os.path.join(root, filename)
+                
+                # Construct the full command to be executed
+                full_command = f"{command} {mp3_file}"
+                
+                # Call the command using subprocess.run()
+                subprocess.run(full_command, shell=True)
